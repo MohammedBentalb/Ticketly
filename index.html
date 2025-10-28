@@ -8,9 +8,44 @@
     <title>brief4</title>
   </head>
   <body>
-    <div>
-      <h1 class="text-red-300 font-bold text-2xl">hi there</h1>
-    </div>
+    
+    <header class="bg-secondary-1">
+      <nav
+        class="max-container mx-auto! px-16 py-6 flex justify-between items-center"
+      >
+        <img src="assets/images/Ticketly.png" alt="logo" class="max-sm:w-20" />
+        <ul class="flex justify-center items-center gap-6 max-sm:hidden">
+          <li class="flex items-center gap-3">
+            <img
+              src="assets/images/arrow-up.png"
+              alt="preview icon"
+              class="size-8"
+            />
+            <a href="#" class="font-semibold hover:text-primary"
+              >Preview profile</a
+            >
+          </li>
+          <li class="flex items-center gap-3">
+            <img
+              src="assets/images/sign-out.png"
+              alt="preview icon"
+              class="size-8"
+            />
+            <a href="#" class="font-semibold hover:text-primary"
+              >Log out</a
+            >
+          </li>
+        </ul>
+
+        <div class="size-8 flex flex-col items-center gap-1.5 justify-center cursor-pointer sm:hidden">
+          <div class="w-full h-0.5 bg-black"></div>
+          <div class="w-full h-0.5 bg-black"></div>
+          <div class="w-full h-0.5 bg-black"></div>
+        </div>
+
+      </nav>
+    </header>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
