@@ -8,7 +8,6 @@
     <title>brief4</title>
   </head>
   <body>
-
     <header class="bg-secondary-1">
       <nav
         class="max-container mx-auto! px-16 py-6 flex justify-between items-center"
@@ -31,68 +30,396 @@
               alt="preview icon"
               class="size-8"
             />
-            <a href="#" class="font-semibold hover:text-primary"
-              >Log out</a
-            >
+            <a href="#" class="font-semibold hover:text-primary">Log out</a>
           </li>
         </ul>
 
-        <div class="size-8 flex flex-col items-center gap-1.5 justify-center cursor-pointer sm:hidden">
+        <div
+          class="size-8 flex flex-col items-center gap-1.5 justify-center cursor-pointer sm:hidden"
+        >
           <div class="w-full h-0.5 bg-black"></div>
           <div class="w-full h-0.5 bg-black"></div>
           <div class="w-full h-0.5 bg-black"></div>
         </div>
-
       </nav>
     </header>
 
     <!-- stepper section -->
     <section class="sm:py-16 py-8">
-      <div class="max-container max-sm:hidden px-16 flex justify-center items-center mx-auto w-full gap-3">
-
-        <div class="group relative active flex items-center gap-2 flex-col justify-center h-full">
-          <div class ="border-primary group-[.active]:border-black  group-[.done]:border-0 group-[.done]:bg-primary rounded-full border-6 size-[35px] bg-transparent transition-[background] duration-300 ease-linear"></div>
-          <p class="absolute  w-fit whitespace-nowrap pt-1 top-full font-semibold text-center text-black/52 group-[.active]:text-black">Choose an event</p>
+      <div
+        class="max-container max-sm:hidden px-16 flex justify-center items-center mx-auto w-full gap-3"
+      >
+        <div
+          class="group stepper relative flex items-center gap-2 flex-col justify-center h-full"
+        >
+          <div
+            class="border-primary group-[.active]:border-black group-[.done]:bg-primary rounded-full border-6 size-[35px] bg-transparent transition-[background] duration-300 ease-linear"
+          ></div>
+          <p
+            class="absolute w-fit whitespace-nowrap pt-1 top-full font-semibold text-center text-black/52 group-[.active]:text-black"
+          >
+            Choose an event
+          </p>
         </div>
-        
+
         <!-- line -->
         <div class="h-2 w-full max-w-[150px] bg-secondary-1"></div>
 
-        <div class="group relative flex items-center gap-2 flex-col justify-center h-full">
-          <div class ="border-primary group-[.active]:border-black  group-[.done]:border-0 group-[.done]:bg-primary rounded-full border-6 size-[35px] bg-transparent transition-[background] duration-300 ease-linear"></div>
-          <p class="absolute  w-fit whitespace-nowrap pt-1 top-full font-semibold text-center text-black/52 group-[.active]:text-black">number of tickets</p>
+        <div
+          class="group stepper relative flex items-center gap-2 flex-col justify-center h-full"
+        >
+          <div
+            class="border-primary group-[.active]:border-black group-[.done]:border-0 group-[.done]:bg-primary rounded-full border-6 size-[35px] bg-transparent transition-[background] duration-300 ease-linear"
+          ></div>
+          <p
+            class="absolute w-fit whitespace-nowrap pt-1 top-full font-semibold text-center text-black/52 group-[.active]:text-black"
+          >
+            number of tickets
+          </p>
         </div>
 
         <!-- line -->
         <div class="h-2 w-full max-w-[150px] bg-secondary-1"></div>
-        
-        <div class="group relative flex items-center gap-2 flex-col justify-center h-full">
-          <div class ="border-primary group-[.active]:border-black  group-[.done]:border-0 group-[.done]:bg-primary rounded-full border-6 size-[35px] bg-transparent transition-[background] duration-300 ease-linear"></div>
-          <p class="absolute  w-fit whitespace-nowrap pt-1 top-full font-semibold text-center text-black/52 group-[.active]:text-black">Personal details</p>
+
+        <div
+          class="group stepper relative flex items-center gap-2 flex-col justify-center h-full"
+        >
+          <div
+            class="border-primary group-[.active]:border-black group-[.done]:border-0 group-[.done]:bg-primary rounded-full border-6 size-[35px] bg-transparent transition-[background] duration-300 ease-linear"
+          ></div>
+          <p
+            class="absolute w-fit whitespace-nowrap pt-1 top-full font-semibold text-center text-black/52 group-[.active]:text-black"
+          >
+            Personal details
+          </p>
         </div>
-        
+
         <!-- line -->
         <div class="h-2 w-full max-w-[150px] bg-secondary-1"></div>
 
-        <div class="group relative flex items-center gap-2 flex-col justify-center h-full">
-          <div class ="border-primary group-[.active]:border-black  group-[.done]:border-0 group-[.done]:bg-primary rounded-full border-6 size-[35px] bg-transparent transition-[background] duration-300 ease-linear"></div>
-          <p class="absolute  w-fit whitespace-nowrap pt-1 top-full font-semibold text-center text-black/52 group-[.active]:text-black">Confirmation</p>
+        <div
+          class="group stepper relative flex items-center gap-2 flex-col justify-center h-full"
+        >
+          <div
+            class="border-primary group-[.active]:border-black group-[.done]:border-0 group-[.done]:bg-primary rounded-full border-6 size-[35px] bg-transparent transition-[background] duration-300 ease-linear"
+          ></div>
+          <p
+            class="absolute w-fit whitespace-nowrap pt-1 top-full font-semibold text-center text-black/52 group-[.active]:text-black"
+          >
+            Confirmation
+          </p>
         </div>
-      
       </div>
 
-      <div class="max-container sm:hidden flex items-start justify-center gap-1">
-          <div class="h-8 overflow-clip flex flex-col items-center">
-            <p class="font-medium text-2xl">1</p>
-            <p class="font-medium text-2xl">2</p>
-            <p class="font-medium text-2xl">3</p>
-            <p class="font-medium text-2xl">4</p>
-          </div>
+      <div
+        class="max-container sm:hidden flex items-start justify-center gap-1"
+      >
+        <div class="h-8 overflow-clip flex flex-col items-center">
+          <p class="font-medium text-2xl">1</p>
+          <p class="font-medium text-2xl">2</p>
+          <p class="font-medium text-2xl">3</p>
+          <p class="font-medium text-2xl">4</p>
+        </div>
         <p class="font-medium text-primary text-2xl">/</p>
         <p class="font-medium text-primary text-2xl">4</p>
       </div>
     </section>
-   
 
+    <div class="max-container mx-auto overflow overflow-clip">
+      <div
+        class="sectionSlider w-full flex items-start transition-transform duration-75 ease-linear"
+      >
+        <!-- first step -->
+        <section class="w-full bg-transparent flex-none px-8">
+          <div class="py-12 flex flex-col gap-4">
+            <h2 class="section-title">Choose an event 🎉🎉</h2>
+            <h2 class="section-title-2">
+              plenty of events for you to choose from
+            </h2>
+          </div>
+          <div class="events bg-red-4 w-full text-white flex flex-col gap-6">
+            <ul class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+              <li
+                data-eventId="1"
+                class="flex flex-col gap-8 p-5 rounded-2xl justify-between bg-primary"
+              >
+                <div class="flex flex-col gap-2">
+                  <p class="font-semibold text-2xl">monitoring css</p>
+                  <div class="opacity-85 font-medium flex items-center">
+                    <p>4</p>
+                    <img
+                      src="assets/images/stool.png"
+                      alt="chair"
+                      class="size-4"
+                    />
+                  </div>
+                </div>
+
+                <p class="font-semibold text-md">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </p>
+
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="font-semibold">
+                      15:00 - 17:00
+                      <span class="text-lg opacity-85">4 may</span>
+                    </p>
+                    <p class="font-semibold">oneline</p>
+                  </div>
+                  <img src="assets/images/right-arrow.png" class="size-5" />
+                </div>
+              </li>
+              <li
+                data-eventId="2"
+                class="flex flex-col gap-8 p-5 rounded-2xl justify-between bg-primary"
+              >
+                <div class="flex flex-col gap-2">
+                  <p class="font-semibold text-2xl">monitoring css</p>
+                  <div class="opacity-85 font-medium flex items-center">
+                    <p>4</p>
+                    <img
+                      src="assets/images/stool.png"
+                      alt="chair"
+                      class="size-4"
+                    />
+                  </div>
+                </div>
+
+                <p class="font-semibold text-md">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </p>
+
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="font-semibold">
+                      15:00 - 17:00
+                      <span class="text-lg opacity-85">4 may</span>
+                    </p>
+                    <p class="font-semibold">oneline</p>
+                  </div>
+                  <img src="assets/images/right-arrow.png" class="size-5" />
+                </div>
+              </li>
+              <li
+                data-eventId="3"
+                class="flex flex-col gap-8 p-5 rounded-2xl justify-between bg-primary"
+              >
+                <div class="flex flex-col gap-2">
+                  <p class="font-semibold text-2xl">monitoring css</p>
+                  <div class="opacity-85 font-medium flex items-center">
+                    <p>4</p>
+                    <img
+                      src="assets/images/stool.png"
+                      alt="chair"
+                      class="size-4"
+                    />
+                  </div>
+                </div>
+
+                <p class="font-semibold text-md">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </p>
+
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="font-semibold">
+                      15:00 - 17:00
+                      <span class="text-lg opacity-85">4 may</span>
+                    </p>
+                    <p class="font-semibold">oneline</p>
+                  </div>
+                  <img src="assets/images/right-arrow.png" class="size-5" />
+                </div>
+              </li>
+              <li
+                data-eventId="4"
+                class="flex flex-col gap-8 p-5 rounded-2xl justify-between bg-primary"
+              >
+                <div class="flex flex-col gap-2">
+                  <p class="font-semibold text-2xl">monitoring css</p>
+                  <div class="opacity-85 font-medium flex items-center">
+                    <p>4</p>
+                    <img
+                      src="assets/images/stool.png"
+                      alt="chair"
+                      class="size-4"
+                    />
+                  </div>
+                </div>
+
+                <p class="font-semibold text-md">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </p>
+
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="font-semibold">
+                      15:00 - 17:00
+                      <span class="text-lg opacity-85">4 may</span>
+                    </p>
+                    <p class="font-semibold">oneline</p>
+                  </div>
+                  <img src="assets/images/right-arrow.png" class="size-5" />
+                </div>
+              </li>
+            </ul>
+
+            <ul class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+              <li
+                data-eventId="5"
+                class="flex flex-col gap-8 p-5 rounded-2xl justify-between bg-primary"
+              >
+                <div class="flex flex-col gap-2">
+                  <p class="font-semibold text-2xl">monitoring css</p>
+                  <div class="opacity-85 font-medium flex items-center">
+                    <p>4</p>
+                    <img
+                      src="assets/images/stool.png"
+                      alt="chair"
+                      class="size-4"
+                    />
+                  </div>
+                </div>
+
+                <p class="font-semibold text-md">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </p>
+
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="font-semibold">
+                      15:00 - 17:00
+                      <span class="text-lg opacity-85">4 may</span>
+                    </p>
+                    <p class="font-semibold">oneline</p>
+                  </div>
+                  <img src="assets/images/right-arrow.png" class="size-5" />
+                </div>
+              </li>
+              <li
+                data-eventId="6"
+                class="flex flex-col gap-8 p-5 rounded-2xl justify-between bg-primary"
+              >
+                <div class="flex flex-col gap-2">
+                  <p class="font-semibold text-2xl">monitoring css</p>
+                  <div class="opacity-85 font-medium flex items-center">
+                    <p>4</p>
+                    <img
+                      src="assets/images/stool.png"
+                      alt="chair"
+                      class="size-4"
+                    />
+                  </div>
+                </div>
+
+                <p class="font-semibold text-md">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </p>
+
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="font-semibold">
+                      15:00 - 17:00
+                      <span class="text-lg opacity-85">4 may</span>
+                    </p>
+                    <p class="font-semibold">oneline</p>
+                  </div>
+                  <img src="assets/images/right-arrow.png" class="size-5" />
+                </div>
+              </li>
+              <li
+                data-eventId="7"
+                class="flex flex-col gap-8 p-5 rounded-2xl justify-between bg-primary"
+              >
+                <div class="flex flex-col gap-2">
+                  <p class="font-semibold text-2xl">monitoring css</p>
+                  <div class="opacity-85 font-medium flex items-center">
+                    <p>4</p>
+                    <img
+                      src="assets/images/stool.png"
+                      alt="chair"
+                      class="size-4"
+                    />
+                  </div>
+                </div>
+
+                <p class="font-semibold text-md">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </p>
+
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="font-semibold">
+                      15:00 - 17:00
+                      <span class="text-lg opacity-85">4 may</span>
+                    </p>
+                    <p class="font-semibold">oneline</p>
+                  </div>
+                  <img src="assets/images/right-arrow.png" class="size-5" />
+                </div>
+              </li>
+              <li
+                data-eventId="8"
+                class="flex flex-col gap-8 p-5 rounded-2xl justify-between bg-primary"
+              >
+                <div class="flex flex-col gap-2">
+                  <p class="font-semibold text-2xl">monitoring css</p>
+                  <div class="opacity-85 font-medium flex items-center">
+                    <p>4</p>
+                    <img
+                      src="assets/images/stool.png"
+                      alt="chair"
+                      class="size-4"
+                    />
+                  </div>
+                </div>
+
+                <p class="font-semibold text-md">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </p>
+
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="font-semibold">
+                      15:00 - 17:00
+                      <span class="text-lg opacity-85">4 may</span>
+                    </p>
+                    <p class="font-semibold">oneline</p>
+                  </div>
+                  <img src="assets/images/right-arrow.png" class="size-5" />
+                </div>
+              </li>
+            </ul>
+          </div>
+          <button
+            id="choose-event-button"
+            class="button-primary disabled:opacity-50 disabled:cursor-default disabled:hover:bg-primary disabled:hover:text-white border border-primary bg-primary px-8 py-2 rounded-xl text-white font-semibold block mx-auto my-6 hover:text-primary hover:bg-white cursor-pointer transition-colors duration-200 ease-linear"
+          >
+            Choose an event
+          </button>
+        </section>
+
+        <section class="w-full h-[700px] bg-transparent flex-none border">
+          2
+        </section>
+        <!-- third step -->
+        <section class="w-full h-[700px] bg-transparent flex-none border">
+          3
+        </section>
+
+        <!-- fourth step -->
+        <section class="w-full h-[700px] bg-transparent flex-none border">
+          4
+        </section>
+      </div>
+    </div>
+
+    <div>
+      <button class="plus-step px-4 border border-black">plus</button>
+      <button class="minus-step px-4 border border-black">minus</button>
+    </div>
+
+    <script src="index.js" defer></script>
   </body>
 </html>
