@@ -8,7 +8,7 @@
     <title>brief4</title>
   </head>
   <body>
-    
+
     <header class="bg-secondary-1">
       <nav
         class="max-container mx-auto! px-16 py-6 flex justify-between items-center"
@@ -46,6 +46,53 @@
       </nav>
     </header>
 
-    <script type="module" src="/src/main.js"></script>
+    <!-- stepper section -->
+    <section class="sm:py-16 py-8">
+      <div class="max-container max-sm:hidden px-16 flex justify-center items-center mx-auto w-full gap-3">
+
+        <div class="group relative active flex items-center gap-2 flex-col justify-center h-full">
+          <div class ="border-primary group-[.active]:border-black  group-[.done]:border-0 group-[.done]:bg-primary rounded-full border-6 size-[35px] bg-transparent transition-[background] duration-300 ease-linear"></div>
+          <p class="absolute  w-fit whitespace-nowrap pt-1 top-full font-semibold text-center text-black/52 group-[.active]:text-black">Choose an event</p>
+        </div>
+        
+        <!-- line -->
+        <div class="h-2 w-full max-w-[150px] bg-secondary-1"></div>
+
+        <div class="group relative flex items-center gap-2 flex-col justify-center h-full">
+          <div class ="border-primary group-[.active]:border-black  group-[.done]:border-0 group-[.done]:bg-primary rounded-full border-6 size-[35px] bg-transparent transition-[background] duration-300 ease-linear"></div>
+          <p class="absolute  w-fit whitespace-nowrap pt-1 top-full font-semibold text-center text-black/52 group-[.active]:text-black">number of tickets</p>
+        </div>
+
+        <!-- line -->
+        <div class="h-2 w-full max-w-[150px] bg-secondary-1"></div>
+        
+        <div class="group relative flex items-center gap-2 flex-col justify-center h-full">
+          <div class ="border-primary group-[.active]:border-black  group-[.done]:border-0 group-[.done]:bg-primary rounded-full border-6 size-[35px] bg-transparent transition-[background] duration-300 ease-linear"></div>
+          <p class="absolute  w-fit whitespace-nowrap pt-1 top-full font-semibold text-center text-black/52 group-[.active]:text-black">Personal details</p>
+        </div>
+        
+        <!-- line -->
+        <div class="h-2 w-full max-w-[150px] bg-secondary-1"></div>
+
+        <div class="group relative flex items-center gap-2 flex-col justify-center h-full">
+          <div class ="border-primary group-[.active]:border-black  group-[.done]:border-0 group-[.done]:bg-primary rounded-full border-6 size-[35px] bg-transparent transition-[background] duration-300 ease-linear"></div>
+          <p class="absolute  w-fit whitespace-nowrap pt-1 top-full font-semibold text-center text-black/52 group-[.active]:text-black">Confirmation</p>
+        </div>
+      
+      </div>
+
+      <div class="max-container sm:hidden flex items-start justify-center gap-1">
+          <div class="h-8 overflow-clip flex flex-col items-center">
+            <p class="font-medium text-2xl">1</p>
+            <p class="font-medium text-2xl">2</p>
+            <p class="font-medium text-2xl">3</p>
+            <p class="font-medium text-2xl">4</p>
+          </div>
+        <p class="font-medium text-primary text-2xl">/</p>
+        <p class="font-medium text-primary text-2xl">4</p>
+      </div>
+    </section>
+   
+
   </body>
 </html>

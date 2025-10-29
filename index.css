@@ -1,15 +1,15 @@
-@import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
 
 @theme {
   --font-chivo: "Chivo", sans-serif;
   --color-primary: #8480f2;
   --color-secondary-1: #f1edf9;
-  --color-secondar-2: #f8f6f7;
+  --color-secondary-2: #f8f6f7;
 }
 
 body {
-  @apply bg-secondar-2;
+  @apply bg-secondary-2;
 }
 
 a {
