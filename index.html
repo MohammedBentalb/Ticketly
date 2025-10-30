@@ -114,7 +114,7 @@
       <div
         class="max-container sm:hidden flex items-start justify-center gap-1"
       >
-        <div class="border flex items-center justify-center overflow-clip">
+        <div class="flex items-center justify-center overflow-clip">
           <div class="stepper-mobile h-8 flex flex-col items-center">
             <p class="font-medium text-2xl">1</p>
             <p class="font-medium text-2xl">2</p>
@@ -127,13 +127,13 @@
       </div>
     </section>
 
-    <div class="max-container mx-auto overflow overflow-clip">
+    <div class="windowIntersect max-container mx-auto overflow-clip">
       <div
         class="sectionSlider w-full flex items-start transition-transform duration-75 ease-linear"
       >
         <!-- first step -->
-        <section class="w-full bg-transparent flex-none px-8">
-          <div class="py-12 flex flex-col gap-4">
+        <section data-rank="1" class="section w-full bg-transparent flex-none px-8">
+          <div class="title-container">
             <h2 class="section-title">Choose an event 🎉🎉</h2>
             <h2 class="section-title-2">
               plenty of events for you to choose from
@@ -158,7 +158,8 @@
                 </div>
 
                 <p class="font-semibold text-md">
-                  Discover why your div still shifts 3px left for no reason. Bring tissues.
+                  Discover why your div still shifts 3px left for no reason.
+                  Bring tissues.
                 </p>
 
                 <div class="flex items-center justify-between">
@@ -189,7 +190,8 @@
                 </div>
 
                 <p class="font-semibold text-md">
-                  Nesting gone wild. Learn to write SASS so elegant even your variables feel classy.
+                  Nesting gone wild. Learn to write SASS so elegant even your
+                  variables feel classy.
                 </p>
 
                 <div class="flex items-center justify-between">
@@ -220,7 +222,8 @@
                 </div>
 
                 <p class="font-semibold text-md">
-                  Build APIs so fast you'll question HTTP itself. Coffee mandatory, sleep optional.
+                  Build APIs so fast you'll question HTTP itself. Coffee
+                  mandatory, sleep optional.
                 </p>
 
                 <div class="flex items-center justify-between">
@@ -251,7 +254,8 @@
                 </div>
 
                 <p class="font-semibold text-md">
-                  A motivational rollercoaster: code, fail, cry, succeed, repeat. Grit makes it art.
+                  A motivational rollercoaster: code, fail, cry, succeed,
+                  repeat. Grit makes it art.
                 </p>
 
                 <div class="flex items-center justify-between">
@@ -285,7 +289,8 @@
                 </div>
 
                 <p class="font-semibold text-md">
-                  Enter the land of semicolons and stack traces. Bring patience and caffeine.
+                  Enter the land of semicolons and stack traces. Bring patience
+                  and caffeine.
                 </p>
 
                 <div class="flex items-center justify-between">
@@ -316,7 +321,8 @@
                 </div>
 
                 <p class="font-semibold text-md">
-                  Full-stack in one go. Mongo to React before lunch—burnout by dinner.
+                  Full-stack in one go. Mongo to React before lunch—burnout by
+                  dinner.
                 </p>
 
                 <div class="flex items-center justify-between">
@@ -347,7 +353,8 @@
                 </div>
 
                 <p class="font-semibold text-md">
-                  Code live with MongoDB, Express, React, Node. Expect bugs, cheers, and mild panic.
+                  Code live with MongoDB, Express, React, Node. Expect bugs,
+                  cheers, and mild panic.
                 </p>
 
                 <div class="flex items-center justify-between">
@@ -378,7 +385,8 @@
                 </div>
 
                 <p class="font-semibold text-md">
-                  Farewell to computer science, fundamentals—JavaScript frameworks have taken over.
+                  Farewell to computer science, fundamentals—JavaScript
+                  frameworks have taken over.
                 </p>
 
                 <div class="flex items-center justify-between">
@@ -402,16 +410,60 @@
           </button>
         </section>
 
-        <section class="w-full h-[700px] bg-transparent flex-none border">
-          2
+        <!-- second step -->
+        <section data-rank="2" class="section w-full bg-transparent flex-none px-8">
+          <div class="title-container">
+            <h2 class="section-title">Choose the number of seets🎟️</h2>
+            <h3 class="section-title-2">Exited to see how many would come</h3>
+          </div>
+          <div
+            class="max-w-233.5 w-full flex flex-col md:flex-row justify-stretch bg-primary rounded-xl min-h-55.5 mx-auto"
+          >
+            <div
+              class="flex items-center justify-center max-md:py-2 w-full bg-white border-4 max-md:rounded-t-xl md:rounded-bl-xl md:rounded-tl-xl border-primary md:max-w-30.25"
+            >
+              <img
+                src="assets/images/scan_me_qr_code.jpg"
+                alt="qr code"
+                class="size-28"
+              />
+            </div>
+            <div class="w-full flex flex-col justify-between px-4 md:px-6 py-4 text-white max-md:gap-6">
+              <p class="text-center font-semibold text-3xl md:hidden">Monitoring css</p>
+              <div class="flex items-center justify-between">
+                <p class="date-ticket font-semibold sm:text-lg whitespace-nowrap">4 May</p>
+                <p class="ticket-title max-md:hidden text-4xl font-semibold first-letter:capitalize text-center">monitoring css</p>
+                <div class="flex max-md:w-full items-center justify-center gap-3 md:gap-6 font-medium">
+                  <p class="max-md:max-md:ml-auto">15:00 - 17:00</p>
+                  <p class="location-ticket max-md:ml-auto">online</p>
+                </div>
+              </div>
+              <p class="font-medium max-sm:text-sm text-center text-white/75">Discover why your div still shifts 3px left for no reason. Bring tissues.</p>
+              <div class="flex items-baseline justify-center">
+                <img src="assets/images/ticketly-logo-ticket.png" class="md:ml-auto w-38 max-md:w-30" alt="logo">
+                <p class="font-bold ml-auto max-md:hidden">00007541289</p>
+              </div>
+            </div>
+          </div>
+          <!-- ticket counter -->
+          <div class="flex items-center mx-auto w-fit my-8 gap-10 font-bold">
+            <div class="counter-minus size-10 cursor-pointer rounded-md bg-secondary-1 flex items-center justify-center">-</div>
+            <div class="ticketCounter">0</div>
+            <div class="counter-plus size-10 cursor-pointer rounded-md bg-secondary-1 flex items-center justify-center">+</div>
+          </div>
+          <div class="progress-buttons-section mx-auto flex items-center justify-between max-sm:w-[80%] lg:w-[50%] gap-6">
+            <button class="previous-b px-16 rounded-xl bg-primary py-4 font-bold  text-white not-disabled:hover:bg-secondary-1 not-disabled:hover:text-primary  border-2 border-primary not-disabled:cursor-pointer disabled:opacity-52 transition-colors ease-linear duration-200 max-sm:px-6 max-sm:py-2 max-sm:text-sm">Previous</button>
+            <button class="next-b px-16 rounded-xl bg-secondary-1 py-4 font-bold  text-primary not-disabled:hover:bg-primary not-disabled:hover:text-secondary-1  border-2 border-primary not-disabled:cursor-pointer disabled:opacity-52 transition-colors ease-linear duration-200 max-sm:px-6 max-sm:py-2 max-sm:text-sm">Next</button>
+          </div>
         </section>
+
         <!-- third step -->
-        <section class="w-full h-[700px] bg-transparent flex-none border">
+        <section data-rank="3" class="section w-full bg-transparent flex-none border">
           3
         </section>
 
         <!-- fourth step -->
-        <section class="w-full h-[700px] bg-transparent flex-none border">
+        <section data-rank="4" class="section w-full  bg-transparent flex-none border">
           4
         </section>
       </div>
@@ -423,5 +475,6 @@
     </div>
 
     <script src="index.js" defer></script>
+    <script src="intersection.js" defer></script>
   </body>
 </html>

@@ -5,9 +5,13 @@ const stepper = document.querySelectorAll(".stepper");
 const mobileStepper = document.querySelector(".stepper-mobile");
 const chooseEventButton = document.getElementById("choose-event-button");
 const evantCards = document.querySelectorAll("[data-eventId]");
+const ticketCounter = document.querySelector(".ticketCounter");
+const previousButtons = document.querySelectorAll(".previous-b")
+const nextButtons = document.querySelectorAll(".next-b")
 
 let step = 0;
 let eventId = null;
+let ticketsBooked = 0;
 
 let events = [
   {
@@ -76,28 +80,37 @@ let events = [
   },
 ];
 
-
-console.log(mobileStepper);
 // initialization
 buttonInablerAndDisabler(chooseEventButton, eventId !== null ? false : true);
+buttonInablerAndDisabler(nextButtons[0], ticketsBooked === 0 ? true : false);
 initializeAndUpdateProgress();
+
+
+
 
 // event listenner to listen for the clicking of choosin an event
 evantCards.forEach((event) => {
   event.addEventListener("click", (e) => {
-    if (event.getAttribute("data-eventId") === eventId) {
+      ticketsBooked = 0;
+      ticketCounter.textContent = ticketsBooked;
+    if (Number(event.getAttribute("data-eventId")) === eventId) {
       event.classList.remove("selected-event");
       eventId = null;
+
       buttonInablerAndDisabler(chooseEventButton, true);
       return;
     }
 
-    evantCards.forEach((oldEvent) => oldEvent.classList.remove("selected-event"));
-    eventId = e.currentTarget.getAttribute("data-eventId");
+    evantCards.forEach((oldEvent) =>
+      oldEvent.classList.remove("selected-event")
+    );
+    eventId = Number(e.currentTarget.getAttribute("data-eventId"));
     buttonInablerAndDisabler(chooseEventButton, step !== null ? false : true);
     e.currentTarget.classList.toggle("selected-event");
   });
 });
+
+
 
 // event listenner to listen for the click of the choose event button to go to the next step
 chooseEventButton.addEventListener("click", (e) => {
@@ -107,9 +120,67 @@ chooseEventButton.addEventListener("click", (e) => {
   }
   step++;
   formProgress(step);
+  console.log(eventId);
 });
 
-// function
+let plus = document.querySelector(".counter-plus");
+let minus = document.querySelector(".counter-minus");
+
+plus.addEventListener("click", () => {
+  if (ticketsBooked === events[eventId - 1].places) return;
+  ticketsBooked++;
+  ticketCounter.textContent = ticketsBooked;
+  buttonInablerAndDisabler(nextButtons[0], ticketsBooked === 0 ? true : false);
+});
+
+
+
+minus.addEventListener("click", () => {
+  if (ticketsBooked === 0) return;
+  ticketsBooked--;
+  ticketCounter.textContent = ticketsBooked;
+  buttonInablerAndDisabler(nextButtons[0], ticketsBooked === 0 ? true : false);
+});
+
+
+
+
+
+// previous button in second section
+previousButtons.forEach(button => {
+  button.addEventListener("click", () =>{
+    if(step == 1){
+      step--
+      initializeAndUpdateProgress()
+    }
+  })
+})
+
+nextButtons.forEach(button => {
+  button.addEventListener("click", () =>{
+    if(step == 1){
+      if(ticketsBooked === 0) return
+    }
+    console.log('next')
+  })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// functions
 
 function buttonInablerAndDisabler(element, disable) {
   if (disable) {
@@ -144,6 +215,27 @@ function initializeAndUpdateProgress() {
   mobileStepper.style.transform = `translateY(${-100 * step}%)`;
   sectionSlider.style.transform = `translateX(${-100 * step}%)`;
 }
+
+
+
+
+const initializeTicketCounter = (value) => {
+  ticketCounter = value
+  ticketCounter.textContent = value;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // testing evantCards to be removed
 
