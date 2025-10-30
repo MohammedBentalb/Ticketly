@@ -9,58 +9,63 @@ let step = 0;
 let eventId = null;
 
 // initialization
-// buttonInablerAndDisabler(chooseEventButton, eventId !== null ? true : false);
+buttonInablerAndDisabler(chooseEventButton, eventId !== null ? false : true);
 initializeStepper();
-
-
-
 
 // event listenner to listen for the clicking of choosin an event
 events.forEach((event) => {
   event.addEventListener("click", (e) => {
-  events.forEach((oldEvent) => oldEvent.classList.remove("selected-event"));
-
+    
+    if(event.getAttribute('data-eventId') === eventId) {
+      event.classList.remove("selected-event")
+      eventId = null;
+      buttonInablerAndDisabler(chooseEventButton, true);
+      return
+    }
+    
+    events.forEach((oldEvent) => oldEvent.classList.remove("selected-event"));
     eventId = e.currentTarget.getAttribute("data-eventId");
-    console.log(eventId);
+    buttonInablerAndDisabler(chooseEventButton, step !== null ? false : true);
     e.currentTarget.classList.toggle("selected-event");
   });
 });
 
 
-// event listenner to listen for the click of the choose event button to go to the next step
 
+// event listenner to listen for the click of the choose event button to go to the next step
 chooseEventButton.addEventListener("click", (e) => {
   if (eventId === null) {
     buttonInablerAndDisabler(chooseEventButton, false);
     return;
   }
-  buttonInablerAndDisabler(chooseEventButton, step !== null ? false : true);
   step++;
   formProgress(step);
 });
 
-forward.addEventListener("click", (e) => {
-  if (step === 3) return;
-  if (step >= 0 && step < 4) step += 1;
-  initializeStepper();
-  formProgress(step);
-});
 
-backward.addEventListener("click", (e) => {
-  if (step === 0) return;
-  if (step > 0 && step <= 3) step--;
 
-  initializeStepper();
-  formProgress(step);
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function
+
 
 function buttonInablerAndDisabler(element, disable) {
   if (disable) {
-    element.disabled = false;
+    element.disabled = true;
     return;
   }
-  element.disabled = true;
-  console.log(element.disabled)
+  element.disabled = false;
 }
 
 function formProgress(step) {
@@ -86,3 +91,31 @@ function initializeStepper() {
   });
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+// testing events to be removed
+
+forward.addEventListener("click", (e) => {
+  if (step === 3) return;
+  if (step >= 0 && step < 4) step += 1;
+  initializeStepper();
+  formProgress(step);
+});
+
+backward.addEventListener("click", (e) => {
+  if (step === 0) return;
+  if (step > 0 && step <= 3) step--;
+
+  initializeStepper();
+  formProgress(step);
+});
