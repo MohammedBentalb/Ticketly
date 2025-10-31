@@ -9,7 +9,7 @@
 }
 
 body {
-  @apply bg-secondary-2;
+  @apply bg-secondary-2 font-chivo;
 }
 
 a {
