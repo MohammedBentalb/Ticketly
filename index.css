@@ -60,6 +60,7 @@ ul {
     "name f-name"
     "email email"
     "phone image"
+    "submit submit"
   ;
 }
 
@@ -74,6 +75,7 @@ ul {
     "email"
     "phone"
     "image"
+    "submit"
     ;
   }
 }
@@ -96,6 +98,10 @@ ul {
 
 .div-image{
   grid-area: image;
+}
+
+.div-submit{
+  grid-area: submit;
 }
 
 

@@ -1,7 +1,7 @@
 const eventListContainer = document.querySelector(".eventListOne");
 const eventListContainer2 = document.querySelector(".eventListTwo");
 
-let step = 2;
+let step = 0;
 let eventId = null;
 let ticketsBooked = 0;
 
@@ -223,17 +223,18 @@ minus.addEventListener("click", () => {
 // previous button in second section
 previousButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    if (step == 1) {
+    if (step === 0 || step === 3) return
       step--;
       initializeAndUpdateProgress();
-    }
   });
 });
 
 nextButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    if (step == 1) {
+    if (step === 1) {
       if (ticketsBooked === 0) return;
+      step++
+      initializeAndUpdateProgress()
     }
     console.log("next");
   });
@@ -279,6 +280,27 @@ const initializeTicketCounter = (value) => {
   ticketCounter = value;
   ticketCounter.textContent = value;
 };
+
+
+
+
+
+// tickets section
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // testing evantCards to be removed
 
