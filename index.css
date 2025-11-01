@@ -50,3 +50,63 @@ ul {
 .selected-event {
   @apply scale-102 outline-5 outline-black outline-offset-4;
 }
+
+
+
+
+.form-grid {
+  display: grid;
+  grid-template-areas: 
+    "name f-name"
+    "email email"
+    "phone image"
+  ;
+}
+
+
+
+@media screen and (max-width: 40rem) {
+  
+  .form-grid {   
+    grid-template-areas: 
+    "name"
+    "f-name"
+    "email"
+    "phone"
+    "image"
+    ;
+  }
+}
+  
+.div-name{
+  grid-area: name;
+}
+
+.div-f-name{
+  grid-area: f-name;
+}
+
+.div-email{
+  grid-area: email;
+}
+
+.div-phone{
+  grid-area: phone;
+}
+
+.div-image{
+  grid-area: image;
+}
+
+
+.progress-buttons-section{
+  @apply mx-auto flex items-center justify-between max-sm:w-[80%] lg:w-[50%] gap-6
+}
+
+.previous-b{
+  @apply px-16 rounded-xl bg-primary py-4 font-bold text-white not-disabled:hover:bg-secondary-1 not-disabled:hover:text-primary border-2 border-primary not-disabled:cursor-pointer disabled:opacity-52 transition-colors ease-linear duration-200 max-sm:px-6 max-sm:py-2 max-sm:text-sm
+}
+
+.next-b{
+  @apply px-16 rounded-xl bg-secondary-1 py-4 font-bold text-primary not-disabled:hover:bg-primary not-disabled:hover:text-secondary-1 border-2 border-primary not-disabled:cursor-pointer disabled:opacity-52 transition-colors ease-linear duration-200 max-sm:px-6 max-sm:py-2 max-sm:text-sm
+}

@@ -1,7 +1,7 @@
 const eventListContainer = document.querySelector(".eventListOne");
 const eventListContainer2 = document.querySelector(".eventListTwo");
 
-let step = 0;
+let step = 2;
 let eventId = null;
 let ticketsBooked = 0;
 
