@@ -1,7 +1,7 @@
 const eventListContainer = document.querySelector(".eventListOne");
 const eventListContainer2 = document.querySelector(".eventListTwo");
 
-let step = 2;
+let step = 0;
 let eventId = null;
 let ticketsBooked = 0;
 
@@ -71,7 +71,7 @@ let events = [
     date: "1 jan",
   },
 ];
-let presonlDetails = { image: null };
+let presonlDetails = { image: "/assets/images/human.jpg" };
 let detailsArray = [];
 let invalidCount = [];
 
@@ -242,7 +242,6 @@ document.querySelector("form").addEventListener("submit", (e) => {
 
   for (const item of e.target.children) {
     const input = item.children[1];
-    const errorText = item.children[2];
 
     if (!input) continue;
     if (input.id === "name" || input.id === "familyName") {
@@ -355,7 +354,7 @@ function renderTicketsDetail(e = null) {
   detailList.appendChild(li);
   detailsArray = [...detailsArray, presonlDetails]
   console.log(presonlDetails);
-  presonlDetails = { image: "//" };
+  presonlDetails = { image: "/assets/images/human.jpg" };
   console.log(detailsArray)
 
   buttonInablerAndDisabler(
