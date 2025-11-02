@@ -163,11 +163,26 @@ evantCards.forEach((event) => {
       oldEvent.classList.remove("selected-event")
     );
     eventId = Number(e.currentTarget.getAttribute("data-eventId"));
-    buttonInablerAndDisabler(chooseEventButton, step !== null ? false : true);
+    buttonInablerAndDisabler(
+      chooseEventButton,
+      eventId !== null ? false : true
+    );
     e.currentTarget.classList.toggle("selected-event");
+
     ticketsDetailFiller();
   });
 });
+
+function resetEvents() {
+  evantCards.forEach((event) => {
+    event.classList.remove("selected-event");
+    eventId = null;
+    buttonInablerAndDisabler(
+      chooseEventButton,
+      eventId !== null ? false : true
+    );
+  });
+}
 
 // event listenner to listen for the click of the choose event button to go to the next step
 chooseEventButton.addEventListener("click", (e) => {
@@ -378,11 +393,13 @@ nextButtons.forEach((button) => {
       step++;
       initializeAndUpdateProgress();
     } else if (step === 3) {
-      alert("Your attanding have been confirmed");
       step = 0;
+      ticketsBooked = 0;
+      alert("Your attanding have been confirmed");
       initializeAndUpdateProgress();
       detailsArray = [];
-      eventId = 0;
+      detailList.innerHTML = "";
+      resetEvents();
     }
     console.log("next");
   });
