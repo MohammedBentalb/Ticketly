@@ -501,7 +501,6 @@
                   id="name"
                   type="text"
                   class="w-full outline-primary px-4 border-2 h-11 border-[#DDDDDD] rounded-xl"
-                  
                 />
                 <p
                   data-error="name-error"
@@ -520,7 +519,6 @@
                   id="familyName"
                   type="text"
                   class="w-full outline-primary px-4 border-2 h-11 border-[#DDDDDD] rounded-xl"
-                  
                 />
                 <p
                   data-error="f-name-error"
@@ -539,7 +537,6 @@
                   id="email"
                   type="text"
                   class="w-full outline-primary px-4 border-2 h-11 border-[#DDDDDD] rounded-xl"
-                  
                 />
                 <p
                   data-error="email-error"
@@ -558,7 +555,6 @@
                   id="phone"
                   type="text"
                   class="w-full outline-primary px-4 border-2 h-11 border-[#DDDDDD] rounded-xl"
-                  
                 />
                 <p
                   data-error="phone-error"
@@ -569,7 +565,7 @@
               </div>
               <div class="div-image flex flex-col gap-3">
                 <label for="image" class="font-medium text-sm">Image</label>
-                <input id="image" type="file" class="w-full hidden"  />
+                <input id="image" type="file" class="w-full hidden" />
                 <label
                   for="image"
                   id="image"
@@ -603,9 +599,31 @@
         <!-- fourth step -->
         <section
           data-rank="4"
-          class="section w-full bg-transparent flex-none border"
+          class="section w-full bg-transparent flex-none px-8"
         >
-          4
+          <div class="title-container">
+            <h2 class="section-title">Confirm the attending 🎯</h2>
+            <h3 class="section-title-2">We can't wait to see there !!</h3>
+          </div>
+
+          <div
+            class="flex flex-col xl:flex-row items-center xl:items-start justify-between gap-6"
+          >
+            <div
+              data-role="event-confirmation"
+              class="bg-secondary-1 w-full border border-primary flex flex-col items-center p-8 max-w-172 xl:max-w-155.75 rounded-xl gap-6"
+            >
+            </div>
+
+            <ul data-role="details-confirmation" class="flex flex-col gap-6 w-full xl:w-1/2 items-center">
+              
+            </ul>
+          </div>
+
+          <div class="progress-buttons-section m-8">
+            <button class="previous-b">Previous</button>
+            <button class="next-b">Confirm</button>
+          </div>
         </section>
       </div>
     </div>

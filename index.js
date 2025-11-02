@@ -71,10 +71,10 @@ let events = [
     date: "1 jan",
   },
 ];
+
 let presonlDetails = { image: "/assets/images/human.jpg" };
 let detailsArray = [];
 let invalidCount = [];
-
 
 /** creating the list of events  in html using this array */
 events.map((event, i) => {
@@ -139,7 +139,10 @@ const minus = document.querySelector(".counter-minus");
 // initialization
 buttonInablerAndDisabler(chooseEventButton, eventId !== null ? false : true);
 buttonInablerAndDisabler(nextButtons[0], ticketsBooked === 0 ? true : false);
-buttonInablerAndDisabler(nextButtons[1], detailsArray.length === 0 ? true : false);
+buttonInablerAndDisabler(
+  nextButtons[1],
+  detailsArray.length === 0 ? true : false
+);
 initializeAndUpdateProgress();
 
 // event listenner to listen for the clicking of choosin an event
@@ -281,25 +284,16 @@ document.querySelector("form").addEventListener("submit", (e) => {
 });
 
 function renderTicketsDetail(e = null) {
-/*   for (let i = 0; i < 4; i++) {
-    console.log(e.target.children[0].children[2]);
-    if (!e.target.children[i].children[2].classList.contains("hidden")) {
-      e.target.children[i].children[1].classList.remove("border-red-600");
-      e.target.children[i].children[2].classList.add("hidden");
+  for (let child of e.target.children) {
+    const input = child.children[1];
+    const errorText = child.children[2];
+    if (!input) continue;
+
+    if (!errorText.classList.contains("hidde") && input.id !== "image") {
+      input.classList.remove("border-red-600");
+      errorText.classList.add("hidden");
     }
-  } */
-
-      for (let child of e.target.children) {
-        const input = child.children[1];
-        const errorText = child.children[2];
-        if (!input) continue;
-
-        if (!errorText.classList.contains("hidde") && input.id !== "image") {
-          input.classList.remove("border-red-600");
-          errorText.classList.add("hidden");
-        }
-      }
-
+  }
 
   if (invalidCount.length > 0) {
     for (let child of e.target.children) {
@@ -316,7 +310,6 @@ function renderTicketsDetail(e = null) {
     invalidCount = [];
     return;
   }
-
 
   const li = document.createElement("li");
   li.classList.add(
@@ -352,16 +345,16 @@ function renderTicketsDetail(e = null) {
 
   li.innerHTML = content;
   detailList.appendChild(li);
-  detailsArray = [...detailsArray, presonlDetails]
+  detailsArray = [...detailsArray, presonlDetails];
   console.log(presonlDetails);
   presonlDetails = { image: "/assets/images/human.jpg" };
-  console.log(detailsArray)
+  console.log(detailsArray);
 
   buttonInablerAndDisabler(
     nextButtons[1],
     detailList.length === 0 ? true : false
   );
-
+  fillConfirmation();
 }
 
 // previous and next buttons section
@@ -388,6 +381,77 @@ nextButtons.forEach((button) => {
     console.log("next");
   });
 });
+
+function fillConfirmation() {
+  const consfirmationList = document.querySelector(
+    "[data-role=details-confirmation]"
+  );
+  const consfirmationEvent = document.querySelector(
+    "[data-role=event-confirmation]"
+  );
+
+  if (detailsArray.length === 0 || eventId === null) {
+    consfirmationEvent.innerHTML = "";
+    consfirmationList.innerHTML = "";
+    return;
+  }
+
+  detailsArray.forEach((detail) => {
+    const li = document.createElement("li");
+    li.classList.add(
+      "flex",
+      "w-full",
+      "max-md:max-w-[320px]",
+      "items-center",
+      "border-2",
+      "border-primary",
+      "min-h-11",
+      "rounded-xl",
+      "p-6"
+    );
+
+    let content = `
+    <div
+      class="flex flex-col md:flex-row items-center justify-between w-full gap-2 md:gap-6"
+    >
+      <div class="flex items-center flex-col md:flex-row gap-6">
+        <img
+          src="${detail.image}"
+          alt=""
+          class="object-cover rounded-xl w-36 md:w-28.25 md:h-20.25 border-2 border-primary"
+        />
+        <div class="flex flex-col">
+          <p class="max-md:text-center">${detail.name} ${detail.familyName}</p>
+          <p class="text-center">${detail.email}</p>
+        </div>
+      </div>
+      <p>${detail.phone}</p>
+    </div> `;
+
+    li.innerHTML = content;
+    consfirmationList.appendChild(li);
+  });
+
+  consfirmationEvent.innerHTML = `
+    <h3 class="text-3xl font-semibold text-primary">
+      ${events[eventId].name}
+    </h3>
+    <p>
+    ${events[eventId].desc}
+    </p>
+    <div class="flex items-center justify-between w-full">
+      <div class="flex items-center font-bold text-xl">
+        <p>${events[eventId].places}</p>
+        <img
+          src="assets/images/stool.png"
+          alt="chair icon"
+          class="size-5"
+        />
+      </div>
+      <p class="font-semibold text-lg">${events[eventId].location}</p>
+    </div>
+  `;
+}
 
 // functions
 
