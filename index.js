@@ -325,7 +325,7 @@ function renderTicketsDetail(e = null) {
     "max-md:max-w-[320px]",
     "items-center",
     "border-2",
-    "border-secondary-1",
+    "border-primary",
     "min-h-11",
     "rounded-xl",
     "p-6"
@@ -339,7 +339,7 @@ function renderTicketsDetail(e = null) {
         <img
           src="${presonlDetails.image}"
           alt=""
-          class="object-cover rounded-xl w-36 md:w-28.25 md:h-20.25 border-2 border-secondary-1"
+          class="object-cover rounded-xl w-36 md:w-28.25 md:h-20.25 border-2 border-primary"
         />
         <div class="flex flex-col">
           <p class="max-md:text-center">${presonlDetails.name} ${presonlDetails.familyName}</p>
