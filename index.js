@@ -459,7 +459,7 @@ function fillConfirmation() {
     <h3 class="text-3xl font-semibold text-primary">
       ${events[eventId].name}
     </h3>
-    <p>
+    <p class="text-center">
     ${events[eventId].desc}
     </p>
     <div class="flex items-center justify-between w-full">
