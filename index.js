@@ -1,7 +1,7 @@
 const eventListContainer = document.querySelector(".eventListOne");
 const eventListContainer2 = document.querySelector(".eventListTwo");
 
-let step = 0;
+let step = 2;
 let eventId = null;
 let ticketsBooked = 0;
 
@@ -220,12 +220,84 @@ minus.addEventListener("click", () => {
   buttonInablerAndDisabler(nextButtons[0], ticketsBooked === 0 ? true : false);
 });
 
-// previous button in second section
+// tickets section
+
+let presonlDetails = { image: null };
+let detailsArray = [];
+
+const detailList = document.querySelector("[data-name=ticket-list-details]");
+console.log(detailList);
+document.querySelector("form").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const fileReader = new FileReader();
+  fileReader.onload = () => {
+    presonlDetails.image = fileReader.result;
+    renderTicketsDetail();
+    console.log("object with image", presonlDetails);
+  };
+
+  for (const item of e.target.children) {
+    const input = item.children[1];
+    if (!input) continue;
+
+    if (input.id === "image") {
+      fileReader.readAsDataURL(input.files[0]);
+      break;
+    }
+
+    presonlDetails[input.id] = input.value;
+    input.value = "";
+  }
+
+  const renderTicketsDetail = () => {
+    const li = document.createElement("li");
+
+    li.classList.add(
+      "flex",
+      "w-full",
+      "max-md:max-w-[320px]",
+      "items-center",
+      "border-2",
+      "border-secondary-1",
+      "min-h-11",
+      "rounded-xl",
+      "p-6"
+    );
+
+    let content = `
+    <div
+      class="flex flex-col md:flex-row items-center justify-between w-full gap-2 md:gap-6"
+    >
+      <div class="flex items-center flex-col md:flex-row gap-6">
+        <img
+          src="${presonlDetails.image}"
+          alt=""
+          class="object-cover rounded-xl w-36 md:w-28.25 md:h-20.25 border-2 border-secondary-1"
+        />
+        <div class="flex flex-col">
+          <p class="max-md:text-center">${presonlDetails.name} ${presonlDetails.familyName}</p>
+          <p class="text-center">${presonlDetails.email}</p>
+        </div>
+      </div>
+      <p>${presonlDetails.phone}</p>
+    </div>
+`;
+
+    li.innerHTML = content;
+    detailList.appendChild(li);
+    // detailsArray = [...detailsArray, presonlDetails]
+    console.log(presonlDetails);
+    presonlDetails = {};
+  };
+});
+
+// previous and next buttons section
 previousButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    if (step === 0 || step === 3) return
-      step--;
-      initializeAndUpdateProgress();
+    if (step === 0 || step === 3) return;
+    step--;
+    initializeAndUpdateProgress();
   });
 });
 
@@ -233,8 +305,8 @@ nextButtons.forEach((button) => {
   button.addEventListener("click", () => {
     if (step === 1) {
       if (ticketsBooked === 0) return;
-      step++
-      initializeAndUpdateProgress()
+      step++;
+      initializeAndUpdateProgress();
     }
     console.log("next");
   });
@@ -280,27 +352,6 @@ const initializeTicketCounter = (value) => {
   ticketCounter = value;
   ticketCounter.textContent = value;
 };
-
-
-
-
-
-// tickets section
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // testing evantCards to be removed
 
