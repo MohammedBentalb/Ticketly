@@ -377,6 +377,12 @@ nextButtons.forEach((button) => {
       if (detailsArray.length === 0) return;
       step++;
       initializeAndUpdateProgress();
+    } else if (step === 3) {
+      alert("Your attanding have been confirmed");
+      step = 0;
+      initializeAndUpdateProgress();
+      detailsArray = [];
+      eventId = 0;
     }
     console.log("next");
   });
