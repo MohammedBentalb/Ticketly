@@ -501,7 +501,7 @@
                   id="name"
                   type="text"
                   class="w-full outline-primary px-4 border-2 h-11 border-[#DDDDDD] rounded-xl"
-                  required
+                  
                 />
                 <p
                   data-error="name-error"
@@ -520,7 +520,7 @@
                   id="familyName"
                   type="text"
                   class="w-full outline-primary px-4 border-2 h-11 border-[#DDDDDD] rounded-xl"
-                  required
+                  
                 />
                 <p
                   data-error="f-name-error"
@@ -537,9 +537,9 @@
                 >
                 <input
                   id="email"
-                  type="email"
+                  type="text"
                   class="w-full outline-primary px-4 border-2 h-11 border-[#DDDDDD] rounded-xl"
-                  required
+                  
                 />
                 <p
                   data-error="email-error"
@@ -558,7 +558,7 @@
                   id="phone"
                   type="text"
                   class="w-full outline-primary px-4 border-2 h-11 border-[#DDDDDD] rounded-xl"
-                  required
+                  
                 />
                 <p
                   data-error="phone-error"
@@ -569,7 +569,7 @@
               </div>
               <div class="div-image flex flex-col gap-3">
                 <label for="image" class="font-medium text-sm">Image</label>
-                <input id="image" type="file" class="w-full hidden" required />
+                <input id="image" type="file" class="w-full hidden"  />
                 <label
                   for="image"
                   id="image"
@@ -577,7 +577,7 @@
                   >Choose an image</label
                 >
                 <p
-                  data-error="img-error"
+                  data-error="imageError"
                   class="hidden text-red-600 font-semibold text-sm"
                 >
                   Error: does't satisfy the needs

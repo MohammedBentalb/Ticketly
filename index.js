@@ -71,6 +71,10 @@ let events = [
     date: "1 jan",
   },
 ];
+let presonlDetails = { image: null };
+let detailsArray = [];
+let invalidCount = [];
+
 
 /** creating the list of events  in html using this array */
 events.map((event, i) => {
@@ -135,6 +139,7 @@ const minus = document.querySelector(".counter-minus");
 // initialization
 buttonInablerAndDisabler(chooseEventButton, eventId !== null ? false : true);
 buttonInablerAndDisabler(nextButtons[0], ticketsBooked === 0 ? true : false);
+buttonInablerAndDisabler(nextButtons[1], detailsArray.length === 0 ? true : false);
 initializeAndUpdateProgress();
 
 // event listenner to listen for the clicking of choosin an event
@@ -169,11 +174,9 @@ chooseEventButton.addEventListener("click", (e) => {
   }
   step++;
   formProgress(step);
-  console.log(eventId);
 });
 
 // addint the event details to the ticket one an event is shosen
-
 const ticketsDetailFiller = () => {
   const ticketDetailContainer = document.querySelector(
     "[data-role='ticket-info-container']"
@@ -222,50 +225,114 @@ minus.addEventListener("click", () => {
 
 // tickets section
 
-let presonlDetails = { image: null };
-let detailsArray = [];
-
 const detailList = document.querySelector("[data-name=ticket-list-details]");
-console.log(detailList);
 document.querySelector("form").addEventListener("submit", (e) => {
   e.preventDefault();
+  let phoneRegex = /^\d{7,15}$/;
+  let nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{2,50}$/;
+  let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   const fileReader = new FileReader();
+
   fileReader.onload = () => {
     presonlDetails.image = fileReader.result;
-    renderTicketsDetail();
+    renderTicketsDetail(e);
     console.log("object with image", presonlDetails);
   };
 
   for (const item of e.target.children) {
     const input = item.children[1];
+    const errorText = item.children[2];
+
     if (!input) continue;
+    if (input.id === "name" || input.id === "familyName") {
+      if (input.value.trim() === "" || !nameRegex.test(input.value)) {
+        console.log("name is not it ");
+        invalidCount = [...invalidCount, input.id];
+      }
+    }
+
+    if (input.id === "email") {
+      if (!emailRegex.test(input.value)) {
+        console.log("email is not it ");
+        invalidCount = [...invalidCount, input.id];
+      }
+    }
+
+    if (input.id === "phone") {
+      if (!phoneRegex.test(input.value)) {
+        console.log("email is not it ");
+        invalidCount = [...invalidCount, input.id];
+      }
+    }
 
     if (input.id === "image") {
-      fileReader.readAsDataURL(input.files[0]);
-      break;
+      if (input.files.length === 0) {
+        renderTicketsDetail(e);
+        break;
+      } else {
+        fileReader.readAsDataURL(input.files[0]);
+        break;
+      }
     }
 
     presonlDetails[input.id] = input.value;
     input.value = "";
   }
+});
 
-  const renderTicketsDetail = () => {
-    const li = document.createElement("li");
+function renderTicketsDetail(e = null) {
+/*   for (let i = 0; i < 4; i++) {
+    console.log(e.target.children[0].children[2]);
+    if (!e.target.children[i].children[2].classList.contains("hidden")) {
+      e.target.children[i].children[1].classList.remove("border-red-600");
+      e.target.children[i].children[2].classList.add("hidden");
+    }
+  } */
 
-    li.classList.add(
-      "flex",
-      "w-full",
-      "max-md:max-w-[320px]",
-      "items-center",
-      "border-2",
-      "border-secondary-1",
-      "min-h-11",
-      "rounded-xl",
-      "p-6"
-    );
+      for (let child of e.target.children) {
+        const input = child.children[1];
+        const errorText = child.children[2];
+        if (!input) continue;
 
-    let content = `
+        if (!errorText.classList.contains("hidde") && input.id !== "image") {
+          input.classList.remove("border-red-600");
+          errorText.classList.add("hidden");
+        }
+      }
+
+
+  if (invalidCount.length > 0) {
+    for (let child of e.target.children) {
+      const input = child.children[1];
+      const errorText = child.children[2];
+      if (!input) continue;
+
+      if (invalidCount.includes(input.id)) {
+        input.classList.add("border-red-600");
+        errorText.classList.remove("hidden");
+      }
+    }
+
+    invalidCount = [];
+    return;
+  }
+
+
+  const li = document.createElement("li");
+  li.classList.add(
+    "flex",
+    "w-full",
+    "max-md:max-w-[320px]",
+    "items-center",
+    "border-2",
+    "border-secondary-1",
+    "min-h-11",
+    "rounded-xl",
+    "p-6"
+  );
+
+  let content = `
     <div
       class="flex flex-col md:flex-row items-center justify-between w-full gap-2 md:gap-6"
     >
@@ -284,13 +351,19 @@ document.querySelector("form").addEventListener("submit", (e) => {
     </div>
 `;
 
-    li.innerHTML = content;
-    detailList.appendChild(li);
-    // detailsArray = [...detailsArray, presonlDetails]
-    console.log(presonlDetails);
-    presonlDetails = {};
-  };
-});
+  li.innerHTML = content;
+  detailList.appendChild(li);
+  detailsArray = [...detailsArray, presonlDetails]
+  console.log(presonlDetails);
+  presonlDetails = { image: "//" };
+  console.log(detailsArray)
+
+  buttonInablerAndDisabler(
+    nextButtons[1],
+    detailList.length === 0 ? true : false
+  );
+
+}
 
 // previous and next buttons section
 previousButtons.forEach((button) => {
@@ -305,6 +378,11 @@ nextButtons.forEach((button) => {
   button.addEventListener("click", () => {
     if (step === 1) {
       if (ticketsBooked === 0) return;
+      step++;
+      initializeAndUpdateProgress();
+    }
+    if (step === 2) {
+      if (detailsArray.length === 0) return;
       step++;
       initializeAndUpdateProgress();
     }
